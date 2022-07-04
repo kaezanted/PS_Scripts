@@ -41,6 +41,6 @@ $GraphDays = $Days.ToString("yyyy-MM-ddTHH:mm:ssZ")
 
 $LoginUrl = "https://graph.microsoft.com/beta/users?filter=signInActivity/lastSignInDateTime le $GraphDays"
 $ExpiredUsers = (Invoke-RestMethod -Headers @{Authorization = "Bearer $($token)"} -Uri $LoginUrl -Method Get).value
-$ExpiredUsers | FT DisplayName,Mail,userType,userPrincipalName,JobTitle,accountEnabled,department,companyName,onPremisesDistinguishedName,onPremisesDomainName,onPremisesSyncEnabled,createdDateTime
-$ExpiredUsers | Select-Object DisplayName,Mail,userType,userPrincipalName,JobTitle,accountEnabled,department,companyName,onPremisesDistinguishedName,onPremisesDomainName,onPremisesSyncEnabled,createdDateTime | Export-Csv $CSVFileName
+$ExpiredUsers | FT DisplayName,Mail,id,userType,userPrincipalName,JobTitle,accountEnabled,department,companyName,onPremisesDistinguishedName,onPremisesDomainName,onPremisesSyncEnabled,createdDateTime
+$ExpiredUsers | Select-Object DisplayName,Mail,id,userType,userPrincipalName,JobTitle,accountEnabled,department,companyName,onPremisesDistinguishedName,onPremisesDomainName,onPremisesSyncEnabled,createdDateTime | Export-Csv $CSVFileName
 $ExpiredUsers.count
