@@ -1,0 +1,25 @@
+EN ce qui concerne l'ECF ISO 27005 & EBIOS l'ecf n'est pas si compliqué que ca pour info ... !!
+
+25 questions
+qcm donc pas de réponse à rédiger 
+
+l'étude de cas ressemble à 90 % a celle que tu va utiliser toute la semaine
+L'étude de cas est quasiment la même que pour les exos de ta semaine (DEVDOWN)
+Exemple de questions de l'ECF :
+
+- Combien de biens essentiels dans l'étude cas ?
+1. 0 à 5
+2. 5 à 10
+...
+- Même question pour le nombre de biens support
+
+
+Exemple des questions de cours :
+sur ISO 27005 et EBIOS 2010
+
+- Actifs essentiels (ISO 27005) = Biens essentiels (EBIOS)
+- sinon retiens chaque étape de chaque module ISO 27005 et chaque étape de chaque module EBIOS 2010
+- une question simple combien de module ISO 27005 (la réponse est 5)
+- Risque Net = Risque Brut moins efficacité des mesures de sécurité en place
+- Risque Résiduels = Risque Net moins efficacité des mesures de traitements (futurs)
+- Qui est reponsable surr la mise en place des mesures de sécurité ...

@@ -1,0 +1,10 @@
+Question;Reponse
+Qu est ce qu une injection ? ; Une injection est une chaine de caractere envoyee et interpretee par le serveur distant, via une source de donnee renseignee par l utilisateur : Parametres, Inputs, variables, Headers, cookie, Web service, ...
+Quel test simple est il possible de faire pour savoir si une injection SQL est possible ? ; Entrer une simple quote ou une requete pour voir une erreur du moteur SQL s afficher.
+Quel injection SQL peut permettre de bypasser l authentification ? ; Champ mot de passe : test' OR 1=1#     , la condition OR 1=1 va permettre d echapper la verification du mot de passe car c est une situation toujours vraie.
+A quoi sert une injection SQL Union Based ? ; Elle va permettre de relier les colonnes d une autre table a celle qui est interroger initialement.
+J essaie de faire des injections SQL sur le site web du client, mais le serveur ne semble pas afficher d erreur, que puis je faire manuellement pour verifier s il est vulnerable ? ; Effectuer des requetes Blind Time Based qui consistent a utiliser les fonctions SLEEP ou BENCHMARK pour voir si le serveur valide notre requete. 
+Quel outil permet d automatiser les attaques par injection SQL ? ; Sqlmap 
+Expliquez le principe d une injection LDAP. ; Le but est de se servir des champs pour construire une requete LDAP et afficher des informations de l annuaire ou bypasser une authentif, executer du code, ...
+Que fait exactement cette injection LDAP : (&(uid=toto)(|(mail=*))(userPassword=)) ; Cette requete va nous permettre de bypasser une authentif si un utilisateur s appelle bien toto ou si un mail ne possede un mot de passe null.
+

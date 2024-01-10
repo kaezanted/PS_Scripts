@@ -1,0 +1,32 @@
+Question;Reponse
+Que signifie : chain of custody ? A quoi sert elle ? ; C est la chaine de tracabilite, c est un rapport de garde / proces verbal etabli lors de l investigation numerique sur un support decrivant plusieurs informations comme le contexte, les detenteurs du support, la structure des donnees, ...
+C est quoi la MFT ? ; Master File Table, c est l un des composants du systeme de fichier NTFS qui contient la liste de tous les fichiers stockes sur la partition 
+Quelles sont les limites du live forensic ? ; Le Live forensic est limite car nous ne devons pas corrompre les artefacts / preuves, et si le systeme est chiffre nous nous retrouverons assez rapidement bloque.
+Comment peut on s assurer de la legitimite d un executable ? ; En l analysant (/reverse) directement ou en soumettant le hash / signature a analyse par exemple aupres de virus total.
+Quels sont les 4 principaux items dans la methodologie forensic ? ; Acquisition, Examen, Analyse (ou evidence), Reporting. 
+Quelle est la toute premiere action a effectuer dans le cas d une compromission suspectee ? ; Si l attaque n est pas encore confirmee il faut effectuer une levee de doute.
+Quelle action est primordiale lors des copies complete du support compromis ? ; Le calcul de la signature / hash et le timestamp.
+Quel element tres important va nous permettre de correler l ensemble des indices de compromission entre eux et de comprendre l attaque ? ; La timeline.
+Quelle est la difference en MBR et GPT ? (Soyez precis) ; MBR est l ancien systeme de table de partition qui ne peut prendre en compte que jusqu a 4 partitions primaires de 2.2 To maximum par partition. GPT est plus recent et peut prendre en charge 128 partitions, 9.4 Zo par DD mais ne peut etre pris en charge que par les OS windows plus recents (Vista et +).
+Quelle action vient apres le chargement du bootmgr dans la sequence de boot windows ? ; Chargement de Winload qui va lancer le kernelland via win32k.sys et le userland via crss.exe.
+Que contient le premier secteur de 512mo de chaque partition ? ; Le VBR = Volume boot record.
+Que contient HKEY_CLASSES_ROOT (HKCR) dans le registre Windows ? ; Les noms d extension d association, les informations d enregistrement (ProgID), et compatibilite avec les registres 16 bits.
+Dans quel fichier sont stockes les informations sur l utilisateur ? ; NTUSER.DAT
+Ou sont stockes les services dans le registre ? ; HKLM\SYSTEM\Currentcontrolset\Services\
+A quoi correspond tous les svchost dans le gestionnaire des taches ? ; Certains services font partis de groupes de services, c est svchost qui est charge de lancer ces groupes, d ou le fait qu ils apparaissent sous ce nom. 
+A quoi sert VSS ? Quels fichiers sont en lien avec ? ; VSS est le service de cliche instantane de windows, il permet de prendre des cliches du systeme et de pouvoir restaurer les fichiers a la date du cliche. Ce sont des fichiers .VSC qui sont gerenes par VSS.
+Quelle est la signature de fin du MBR en hexadecimal ? ; 55 AA 
+Quel outil peut nous permettre de lire les bits d un disque ? ; Disk editor.
+A quoi sert le dossier AppData ? ; C est le dossier où sont stockees les donnees de configuration des applications de l utilisateur. 
+Si je cherche les artefacts en lien avec la navigation internet de l utilisateur, ou dois je globalement regarder ? ; Dans les donnees du profil utilisateur et plus particulierement dans appdata. 
+Expliquez a quoi peuvent nous servir les shellbags dans une investigation ? ; Les shellbags permettent de determiner les acces a des repertoires locaux, reseaux, ou externes. Il est possible de retrouver des repertoires supprimes ou modifies ainsi que la derniere date a laquelle l utilisateur y a eu acces.
+Si je cherche des artefacts sur les derniers programmes executes, ou puis je regarder dans le systeme ? ; Dans les prefetch, dans le ntuser.dat, amcache.hve ou SRUM. 
+Donnez quelques exemples de comportement systeme manifeste d une compromission. ; Ralentissement general, evenements suspects comme des popup cmd qui apparaissent/disparaissent, des alertes Anti virus, BSOD, ...
+Qu est ce que les MAC times ? ; Les MAC times sont des metadata du systeme de fichiers qui enregistrent quand certains evenements concernant un fichier se sont produits : M = Modified , A = Accessed, C = Created. 
+Comment puis je recuperer les variables d environnement sous Windows ? ; En explorant le PSProvider env: ou en utilisant la commande set sous cmd.
+Qu est ce que wordwheelquery ? Ou  puis je trouver des artefacts en lien ? ; Ce sont les mots cles recherche par l utilisateur dans explorer.exe (via menu start ou dans la fenetre explorer), on trouve les artefacts dans ntuser.dat\Software\Microsoft\Currentversion\Explorer\WordWheelQuery.
+Citez 5 FICHIERS importants a extraire depuis une image systeme Windows NTFS ? ; MFT, SAM, NTUSER.DAT, SYSTEM, SOFTWARE, SECURITY, ...
+Bonus : Qui est le dieu de la forensic ? ; Eric Zimmerman, le cousin masculin de Hans Zimmer ... badum tss ! 
+Dans quels fichiers peut on recuperer des informations sur la premiere et la derniere utilisation d un peripheriques USB ? ; setupapi.dev.log situe dans C:\Windows\inf\ et la ruche SYSTEM du registre. 
+Quelle commande permet de calculer le hash d un fichier ? ; get-filehash xxx -Algorithm SHA1 (ou un autre algo).
+Quelles informations peut on récupérer en effectuant une recherche sur RunMRU ? ; RunMRU nous donne un historique des execution depuis le popup run de Windows.

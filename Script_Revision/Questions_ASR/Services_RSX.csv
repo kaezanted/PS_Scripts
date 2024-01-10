@@ -1,0 +1,63 @@
+Question;Reponse
+Donnez moi la commande (debian) exacte pour ajouter une route vers le reseau 192.168.1.0/24 qui possede comme routeur 172.31.255.3;ip r add 192.168.1.0/24 via 172.31.255.3
+Dans quel fichier doit-on ecrire pour ajouter une route de maniere statique ?;/etc/network/interfaces
+Quel est le port et le protocole pour DHCPv4 ? (ex : 189-TCP/UDP);67/68-UDP
+Port DNS (ex : 189-TCP/UDP) ? ;53-UDP
+Qu'est qu'une requête recursive ?;Une requête recursive est une requête envoyee a un serveur DNS dans laquelle le client DNS demande au serveur de fournir une reponse complete. Une requête recursive ne peut pas être redirigee vers un autre serveur DNS. Dans une requête recursive, le serveur DNS interroge est somme de renvoyer l’une des trois reponses suivantes : Les donnees informatiques demandees. Un message d’erreur indiquant que les donnees informatiques du type demande n’existent pas. Un message indiquant que le nom de domaine specifie n’existe pas
+Qu'est ce qu'une requete iterative ?;Une requête iterative est une requête envoyee a un serveur DNS dans laquelle le client DNS demande la meilleure reponse que peut fournir le serveur DNS. Le resultat d’une requête iterative est souvent une reference a un autre serveur DNS situe plus bas dans l’arborescence DNS.
+Un serveur DNS peut avoir 2 roles, lesquels ? ;Resolveur ou Hebergeur
+Le serveur DNS resolveur peut repondre en faisant 2 type de requêtes, lesquelles ? ;Recursives et iteratives
+Citez moi 5 types d enregistrement DNS;SOA NS A/AAAA PTR MX TXT CNAME
+Qui fait autorite sur la zone DNS, le SOA ou le NS ?;Le NS fait aurotite sur la zone, le SOA est celui qui a le droit d ecrire dans la zone
+FQDN c est quoi ? ;Fully Qualified Domain Name, c est le nom complet compose du nom d hote et de domaine (et eventuellement sous domaine)
+Citez moi 3 ports important pour les mails ?;25-SMTP , 110-POP3 , 143-IMAP
+Citez moi les 5 rôles FSMO;Maître de schema (Schema Master) Appele egalement Maître d'operation, il gere l'ensemble des mises a jour et modifications du schema. ... Maître d'attribution des noms domaine (Domain Naming Master) ... Maître d'infrastructure (Infrastructure Master) ... Maitre RID (RID Master) ... Le PDC Emulator.
+Quelles sont les commandes pour resoudre des requêtes DNS ?;Nslookup et dig (Host aussi sur linux)
+Quels sont les parametres MINIMAUX a distribuer pour un serveur DHCP ?;IP, mask, le bail
+Que se passe-t-il si plusieurs serveurs DHCP sont presents sur un même reseau ?;Celui qui attribue le premier gagne
+Qu utilise t on dans le cas où un seul serveur DHCP distribue des baux sur des rsx differents ?;Des relais DHCP
+Quel est le nom du paquet a installer pour avoir un serveur DHCP sur linux ?;isc-dhcp-server
+Peut-on limiter/filtrer les clients a qui on distribue des adresses IP ?;oui , via les adresses MAC en exclusion ou reservation
+NTP c'est quoi ? ;Network time protocol , c'est le service de temps pour synchroniser les machines
+Quel port pour NTP (ex : 64-tcp) ?;123-udp
+Comment s'organise la synchronisation horaire avec les controleurs AD ?;Avec W32time, les clients se synchronisent automatiquement sur les DC qui eux se synchronisent avec celui qui possedent rôle PDC qui lui doit se synchroniser sur une source externe.
+Une strate c'est quoi ?;C est le niveau de proximite avec les sources de temps initiales (type horloge atomique, gps, ...)
+Dans le cadre de DFS, expliquez moi ce qu'est ABE ?;Acces base sur l enumeration, permet d afficher uniquement les ressources auxquelles l user a des droits d acces
+La Racine de l espace de nom, c est quoi ? ;La racine de l espace de nom est le dossier heberge sur sur un srv DFSN a partir duquel les clients peuvent acceder aux donnees partagees
+AGDLP c est quoi ?;C est la bonne pratique preconisee par Microsoft pour la gestion des comptes et des permissions dans un domaine AD : Account > Global > Domain Local > Permission 
+Citez-moi les rôles dans une infra RDS. ;Gateway (passerelle), Web access, Broker, Hote de session, gestionnaire de licence, hote de virtualisation
+Pourquoi utilise t on des CAL (RDS) ?;CAL = Client Access Licence, ce sont les licences d acces client pour les serveurs RDS, on doit en acheter pour chaque connexion cliente sur un serveur hote de session
+Si j accede a mon infrastructure RDS depuis un poste hors domaine, sur un site distant, sans VPN, comment se fait la connexion jusqu a l hote de session avec un client RDP ?;Je me connecte sur une adresse public et accede a la Gateway, qui redirige le client vers le broker qui initie et va gerer la connexion aux hotes de sessions, en cas de coupure le broker saura me reconnecter sur l hote initial
+Une collection a quoi ca sert ? (RDS);C est ce qui permet de publier les sessions et les applications de bureau a distance et ainsi d ajouter des parametres pour gerer les connexions des clients 
+Quel port pour RDP ?;3389-tcp
+J essaie d ajouter un poste client windows 10 dans un domaine, lors de l ajout il me dit qu il n arrive pas a contacter le domaine, pour quelle raison (principalement) ? (pas de probleme de couche physique);1 Le DNS est mal configure sur le client - 2 La pile reseau du client est mal configure
+Un RODC c est quoi ?;c est un controlleur de domaine en lecture seule qui possede les informations du domaine mais ne peut pas initier de modification
+Quelle est la commande pour ajouter une route sur Powershell ?;New-netroute -interfaceindex -destinationprefix -nexthop
+Quelle est la commande pour check la configuration de Bind ou la zone DNS ?;named-checkzone ou named-checkconf
+Samba qu est ce que c est ? ;C est un outil qui permet d heberger sous Linux un service de partage de fichiers destine aux postes Windows
+Que signifie TLD;ça signifie Top Level Domaine, ce sont les domaines inferieurs aux racines comme .com .fr ...
+Le port 135, kesako ?;c est le port RPC pour Microsoft
+Que fait la commande : showmount -e 192.168.0.1;elle permet de lister les la liste des partages en cours sur le serveur 192.168.0.1
+Ou trouve t on la ligne : /DATA   192.168.1.0/24(rw,async) ?;Dans le fichier /etc/exports, elle permet de faire un partage NFS
+je souhaite faire du NAT avec mon routeur debian en DHCP, quelle commande dois je taper ? (SNAT);iptables -t nat -A POSTROUTING -o eth0 -j [POSTROUTING|SNAT] 
+Pour quel protocole utilise t on les ports 137-138-139 ?;NETBIOS
+J ai un probleme de port qui ne serait pas ouvert sur mon parefeu et qui empeche l authentification kerberos, quel port dois je ouvrir ?;il faut ouvrir le port 88 qui est le principal, sachant que pour la modification des mdp le port 464 est necessaire aussi et les ports 543 et 544 aussi sont lie au login
+Comment activer le routage sur ma Debian de maniere statique ?;Je vais dans le fichier /etc/sysctl.conf et je decommente la ligne net.ipv4.ip_forward=1 
+Je suis le groupe le plus puissant de l AD, au dessus du groupe admins du domaine, quel est mon nom ?;Admins de l entreprise
+Quel est le fichier qui est deja replique , bien que le role DFSR ne soit pas installe sur le controlleur de domaine ?;C est le dossier SYSVOL, qui contient les sous dossiers domain, policies, scripts, staging
+Quel onglet dans les consoles MMC des GPO, me permet d avoir un resume rapide des strategies modifiees ou activees sur cette GPO en particuliers ?;C est l onglet Parametre, qui nous permet en deroulant les sous menu de voir les strategies modifiee pour la GPO selectionnee
+Que me permet de faire la commande : Add-dhcpserverv4scope ;Elle me permet de creer une etendue pour mon serveur DHCP
+Je souhaite resoudre des noms sans serveur DNS, de maniere local sur mon poste, sans passer par des outils externes, la solution doit etre sur mon poste, comment vais je faire ?;Je vais modifier le fichier hosts
+"Que permet de faire la directive Allow-query-on {192.168.1.1; }; dans Bind ?";Elle permet d autoriser les requetes uniquement sur l interface 192.168.1.1 du serveur DNS
+"J ai cette directive dans mon fichier named.conf.local pour la zone campus.eni : type masters; , que permet cette directive ?";"Rien, une erreur bloquera le chargement du fichier et du service, la directive correcte est type master; , cela indique que le serveur est maître pour la zone campus.eni"
+Je dois faire un enregistrement DNS de type SPF, est-ce possible ?;Oui, mais l enregistrement dans la zone DNS sera de type TXT
+Je dois identifier un port, quelle commande peut m aider ?;la commande netstat
+La directive root_squash est indiquee dans le fichier de conf de mon partage NFS, a quoi sert elle ?;Elle va forcer le mappage de l utilisateur root vers un compte utilisateur Anonyme
+Puis je ouvrir un partage NFS sur mon client windows ?;Oui en installant la fonctionnalite client NFS
+Dans mon fichier de conf SAMBA, Quelle est la difference entre la directive create mode et la directive force create mode ;Create mode va indiquer les droits maximums accordes a un fichier cree dans la ressource, force create mode lui va impose des droits lors de la creation
+Quelle commande me permet de lister les partages de ma machine Windows ?;la commande net share ou get-smbshare 
+Quelle commande me permet d ajouter un utilisateur dans la base des comptes de mon SAMBA ? ;pdbedit -a
+Je souhaite monter le partage DATA de mon serveur samba sur ma machine Linux, quel systeme de fichier je vais devoir indiquer dans la commande mount pour que le montage fonctionne ?;Ce sera du CIFS
+Quel fichier sensible dois je modifier pour les montages statiques sur mon linux ?;C est le fichier /etc/fstab 
+Je souhaite me connecter en SSL sur mon serveur Linux avec mon compte ROOT, mais ça ne fonctionne, pourtant je suis certain que le mot de passe est correct, pourquoi ?;Par defaut ROOT ne peut pas se connecter en SSL sur un serveur, la directive permitrootlogin est a modifier dans /etc/ssh/sshd.conf, mais attention c est deconseille ! 
+Une case est a cocher dans la console de gestion DNS d un serveur maitre WIndows pour permettre au serveur secondaire Linux de recuperer la zone, laquelle ?;C est la case dans l onglet propriete du serveur, onglet Avance, case Enable BIND secondaries

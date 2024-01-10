@@ -1,0 +1,8 @@
+Question;Reponse
+J ai installe un CentOS 7 tout frais et ai installe SAMBA en respectant tous les prerecquis, j ai redemarre mon serveur, et malgres tout les clients ne contactent pas le DC, pourquoi ? ; Car sur CentOS, les start des services n est pas ajoute automatiquement au demarrage, il faut faire la commande systemctl enable samba.service"
+Sur quel service Samba se repose enormement ? (au meme titre qu Active Directory) ; Sur le DNS
+Quels sont les 2 roles du Kerberos DC ? ; Authentification service pour authentifier les postes / users et le Ticket Granting Service pour fournir des token
+Quelle est la toute premiere etape qu effectue le poste client lorsqu un utilisateur tente d ouvrir une session utilisateur sur le domaine ? ; Une requete DNS de type SRV est envoyee au serveur DNS pour recuperer l enregistrement KDC 
+Ou sont stockees les objets AD sur le serveur DC Samba ? ; Dans  /var /lib /samba /private et ce sont les fichiers .ldb et .tdb
+Quelle commande permet de créer le domaine Samba ? ; Samba-tool domain provision
+Lors de la creation du domaine via la commande samba-tool, j ai une erreur concernant smb, comment faire ? ; Il faut au prealable supprimer le fichier /etc /samba /smb.conf (faire une sauvegarde du fichier au cas où)

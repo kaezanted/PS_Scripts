@@ -1,0 +1,55 @@
+Question;Reponse
+Quelle est la puissance maximum pour l'emission d'onde wifi en France ? Que risque t on si on depasse cette limite ? ; 20 Dbm ou 100 mW et nous risquons 30 000 euros + le retrait du materiel.
+Quelles sont les caracteristiques et le nom standard du WIFI 1 ? ; 802.11b, standard publie en 1999 avec un debit theorique de 11Mb/s diffuse sur 2.4GHz.
+Quelles sont les caracteristiques et le nom standard du WIFI 2 ? ; 802.11a, standard publie en 1999 qui ameliore le debit a 54 Mb/s sur 5GHz et qui apporte la notion de multiplexage sur les frequences (OFDM).
+Quelles sont les caracteristiques et le nom standard du WIFI 3 ? ; 802.11g, standard publie en 2003 qui ameliore le debit de la diffusion sur le 2.4GHz a 54Mb/s.
+Quelles sont les caracteristiques et le nom standard du WIFI 4 ? ; 802.11n, standard publie en 2009 qui ameliore les debits des deux bandes 2.4 et 5 GHz a 600 Mb/s.
+Quelles sont les caracteristiques et le nom standard du WIFI 5 ? ; 802.11ac, standard publie en 2014 qui ameliore le debit theorique a 1Gb/s diffuse sur la bande de frequence 5GHz.
+Quelles sont les caracteristiques et le nom standard du WIFI 6 ? ; 802.11ax, standard publie en 2018 qui ameliore encore le debit theorique des 2 bandes (2.4 et 5GHz) a 10,5 Gb/s.
+Quelle norme wifi est actuellement la plus utilisee ? ; La norme WIFI 5 ou 801.11ac.
+Comment exprime t on la puissance emetrice d un materiel wifi ? Et le gain ? ; On exprime la puissance en Decibel par milliWatt (Dbm) et le gain en dBi (Decibel isotrope).
+Comment exprime t on la sensibilite de reception d un client wifi ? Quelle est la particularite de cette caracteristique ? ; Elle est exprimee en Dbm et est negative (-80Dbm par exemple), plus elle est faible plus le materiel est sensible et meilleure est sa capacite de reception.
+Nous captons le meme SSID emis par plusieurs bornes differentes, l une diffuse avec une puissance de 12dBm, une autre de 18dBm, une de 16dBm. Aupres de quelle borne mon client va t il se connecter ? ; Il va se connecter a la borne qui a la puissance la plus elevee = 18dBm.
+De combien de canaux dispose la bande de frequence 2.4GHz ? Et de canaux qui ne se chevauchent pas (non overlapping) ? ; La bande 2.4GHz dispose de 13 canaux de 22MHz qui se chevauchent, et ne peut disposer que de 3 non overlapping channels.
+En effectuant un bilan d onde, comment sait on si le signal sera assez bon pour le client ? ; Il faut que le resultat final du bilan soit superieur a 10dB (seuil a partir duquel le signal est considere comme bon), plus le resultat est eleve, meilleur c'est.
+Qu est ce qui consistue en general le bilan d onde ? ; La puissance emetrice, les attenuations multiples des materiels, du chemin, obstacles, ... et la sensibilite de reception du client.
+Definissez ce qu est la PIRE ? ; C est l ensemble de la chaine d emission d un materiel emeteur WIFI ( puissance de l emetteur - attenuation du câble + Gain de l antenne).
+De combien de canaux dispose la bande de frequence de 5GHz en Europe ? Et combien de non overlapping channels ? ; 19 canaux pour le 5GHz et 24 non-overlapping channels.
+Quelles sont les particularites du 5GHz par rapport au 2.4GHz ? ; Le 5GHz dispose de plus de canaux / non overlapping channels, un debit plus important mais une attenuation plus forte sur la distance et en cas d obstacle.
+C est quoi un SSID ou ESSID ? ; Service Set Identifier et Extended ... = appellation du reseau diffuse par le materiel emetteur.
+A quoi correspond le BSSID ? ; Basic Service Set Identifier qui correspond a l adresse physique de l equipement (MAC).
+C est quoi une "Beacon Frame" ? A quoi ca sert ? ; C est une trame specifique qui contient des infos comme le SSID, les debits supportes, ... et qui est distribuee a tout les clients a portee. Elles permettent la synchronisation au point d acces.
+Quel est le nom du paquet envoye par les clients en Broadcast afin de recuperer les infos pour se connecter a un reseau Wifi ? Donnez quelques informations qu'elle peut contenir. ; C est la Probe Request, elle peut contenir : le SSID cible (ou wildcard), les debits supportes, les canaux utilises, etc, etc ...
+Quel type de requete est envoyee en reponse a une Probe Request ? ; Une Probe Response, elle contient le meme type d informations que dans les Beacons frames.
+Comment appelle t on une Probe request envoyee en Broadcast ? Et celle envoyee specifiquement a un AP ? ; La Management Probe Request est envoyee en Broadcast, si le client cible un AP alors c est une Directed Probe Request.
+Quels sont les 5 principaux modes utilises par les cartes wifi ? ; Managed = Carte cliente , Master = Point d acces, Monitor = Carte en ecoute (sans connexion), Ad-Hoc = Point a point et le mode Promiscuous = Connecte (Filtre Hardware, Sniffing de tous les paquets en etant connecte)
+A quoi nous sert le mode Monitor sur une carte wifi dans un pentest ? ; Il permet d ecouter tout le traffic sur la couche 2 sans etre connecte a un reseau particulier. Nous allons donc recuperer des informations sur les reseaux environnants.
+Quelle suite d outil nous permet de menera bien une attaque sur le wifi ? ; Aircrack-ng
+Expliquez ce qu est un filtre hardware. ; Le filtre Hardware joue le role de videur pour la carte reseau, il va definir le comportement a adopter lors de la reception des paquets. Par exemple il va rejeter les paquets qui ne nous sont pas destine.
+Citez les 4 differents filtres Hardware. ; UNICAST, BROADCAST, MULTICAST et PROMISCUOUS.
+Quel outil permet de gerer les filtres de la carte reseau ? ; Rfkill
+Quelle commande exacte permet de lancer le mode monitor de la carte wifi ? ; airmon-ng start <wlan0> (en fonction du peripherique).
+Donnez les differentes etapes d une attaque WPA2 pour peter la cle. Sachant qu'un utilisateur est deja connecte au SSID cible. ; Debloquer la carte > Desactiver les filtres > Passer en mode Monitor pour ecouter le reseau et recuperer les informations > Injecter des paquet de desauthentication au client en se faisant passer pour l AP > Capturer le Handshake > Bruteforce la cle > Se connecter a l AP et acceder au reseau.
+C est quoi un Evil Twin ? ; Attaque du wifi, qui consiste a usurper un AP afin de faire du MITM.
+Quelles sont les principales caracteristiques et faiblesses du protocole WEP ? ; Publie en 1997, WEP utilise l algorithme symetrique RC4 et utilise une seule cle de 40 ou 104 bits pour chiffrer et dechiffrer les donnees + 24 bits reserves pour l'IV (vecteur d initialisation qui sert a augmenter la robustesse de la cle). Faiblesses : taille de l'IV trop faible, l'algorithme RC4 trop faible, taille de cle insuffisante.
+Quelles sont les principales caracteristiques du protocole WPA ? ; Publie en 2003, WPA va introduire une TKIP (cle temporaire unique par session d une duree de 10 000 frames) pour hasher les IVs et utilise un code MIC pour verifier l integrite des trames et empecher le replay. L'algorithme RC4 est toujours utilise.
+Quelles sont les principales ameliorations du protocole WPA2 par rapport a WPA ? ; Publie en 2004, WPA2 (norme 802.11i) remplace TKIP par CCMP, utilise un systeme de handshake en 4 phases et utilise AES a la place de RC4. (continue d utiliser MIC pour l anti replay) De plus, 802.11i rend obligatoire la compatibilite WPA2 pour les equipements certifies WIFI depuis 2006.
+Quelle est la difference entre WPA2 personal et WPA2 enterprise ? ; le personal repose sur l'utilisation d une PSK (pre shared key) entre le client et l'AP alors que l enterprise repose sur le protocole 802.1X (Radius) / EAP.
+Accrochez-vous... et Remettez dans l'ordre initial ces echanges wifi WPA2 personal :   //1- ANonce via EAPOL + RSN IE //2- Challenge avec la PSK //3- Synchronisation entre le client et l AP  //4- Generation de la PMK avec SHA1  //5- Envoi de la SNonce par le client + RSN IE + MIC //6- Ecoute du reseau  //7- Division de la PTK en 3 cles //8- Envoi d une beacon frame par l AP //9- Generation de la PTK cote client  ; 6 >> 8 >> 3 >> 2 >> 4 >> 1 >> 9 >> 5 >> 7.
+Avec quoi est generee la PTK lors du handshake WPA2 ? ; Avec la PMK + les adresses MAC (AP + client) + ANonce + Snonce.
+Avec quoi est generee la PMK lors du handshake WPA2 ? ; Avec la PSK (Pre shared key = la cle)
+Expliquez brievement le principe de WES. ; Wifi protected setup = Mecanisme d authentification a l AP simplifie sans de mot de passe avec un code pin ou un bouton.
+Quelles attaques sont possibles pour WPS ? ; PixieDust : Bruteforce du PIN lors du challenge ou Attaque Koala en interceptant le paquet d authentif du routeur lorsqu on appuie sur le bouton.
+Quelles sont les principales caracteristiques de WPA3 ? ; Standard pousse en 2018, Cle de 128 bits en personal et 192 en enterprise. La Pre Shared Key est remplacee par SAE (Simultaneous Authentication of Equals), Principe de Forward Secrecy qui protege les echanges anterieurs meme si la cle est compromise et un mode de connexion par QRcode.
+Quelles sont les 3 entites qui composent 802.1x ? ; Le Client (supplicant), le Controleur (Authenticator) et le serveur d authentification.
+Dans la norme 802.1x, qui a le role d authentifier le client ? L authenticator ou le serveur d authentification ? ; Le serveur d authentification.
+A quoi sert EAP ? ; EAP est le protocole utilise pour encapsuler les autres protocoles d authentification et les informations de controles afin d etre envoye sur le reseau via EAPOL (EAP over LAN).
+Qu est ce que Diameter ? ; Diameter est un protocole utilisable dans le cadre de la norme 802.1X qui peut remplacer le protocole RADIUS
+Question bonus : D ou vient le nom du protocole Diameter ? ; Le nom du protocole est Diameter parce qu il est cense remplacer RADIUS, hors le diametre (diameter...) fait 2 fois le rayon (Radius...)....... Un beau jeu de mot de barbu.
+Quelles sont les methodes d authentification possibles pour 802.1X ? ; TLS avec un certificat pour le serveur et le client, PEAP avec un certificat cote serveur et un couple login/pwd pour le client et TTLS, se rapprochant de PEAP.
+Quels evenements nous pouvons surveiller sur le reseau pour securiser le wifi ? ; Surveiller les deauthentication qui surviennent et l apparition d un point d acces avec le meme ESSID.
+A quelle norme WIFI (1,2,3,4,...) correspond le standard 802.11b ? ; WIFI 1
+A quelle norme WIFI (1,2,3,4 ...) correspond le standard 802.11n ? ; WIFI 4
+A quelle norme WIFI (1,2,3,4 ...) correspond le standard 802.11i ? ; Aucune, le standard 802.11i est le standard qui definit WPA et WPA2.
+A quelle norme WIFI (1,2,3,4 ...) correspond le standard 802.1Q ? ; Aucune, le 802.1Q est le standard pour le transport des VLAN.
+A quoi sert MIC ? ; Message Integrity Code, il permet, dans le cadre de WPA/2/3 de controler l integritee des trames echangees et il empeche le replay de ces trames.

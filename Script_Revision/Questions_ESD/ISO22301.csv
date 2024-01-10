@@ -1,0 +1,16 @@
+Question;Reponse
+A quoi sert la norme ISO 27031 ? ; Ce sont les lignes directrices (guide) pour la gestion de continuite d activite de l informatique.
+L entreprise Captain Morgan produit 20000 bouteilles de rhum par heure avec 200 personnes en temps normal. Il a ete decide que la production doit continuer de sortir 50% de la production journaliere soit 240000 bouteilles en mode degrade, ce qui necessite d avoir au moins 30% des effectifs presents sur site. En cas d incident majeur, combien de personnes doivent etre presents durant le PCA ? ; 30% de 200 donc 60 personnes.
+Quels sont les elements principaux etudies durant le module 4 de la norme 22301 ? ; Le contexte de l'organisation, les enjeux externes et internes, les activites (processus metiers) et supports en lien avec ces activites, les parties prenantes (interessees) et leurs besoins,  les exigences legales / reglementaires, le perimetre du SMCA.
+De quoi parle le chapitre 5 de la norme 22301 ? ; Du leadership : des engagements, l implication de la direction dans l implementation du SMCA ainsi que les roles et responsabilites.
+Quelle norme traite de la continuite d activite d une entreprise ? ; La norme ISO 22301.
+Sur quelle autre norme peut on s appuyer pour etudier les risques pesant sur les activites de l entreprise et donc les mesures / procedures a mettre en place afin de pouvoir continuer les activites critiques de l entite ? ; La norme 27005 avec l appreciation des risques.
+Definissez RPO. ; RPO = Return Point objective = Le delta de temps de production que l entreprise accepte de perdre en cas d incident (par rapport à ses mesures : sauvegardes toutes les 12h, ...).
+Definissez RTO. ; RTO = Recovery Time Objective = Le delta de temps entre le moment de l incident et l activation du PCA (donc la duree pendant laquelle l activite est fortement degradee et les procedures de secours manuelles sont enclenchees).
+Quelles sont les phases de construction d'une strategie courante ? ; Mission > Vision > Objectifs > Strategies / Valeurs.
+Qu est ce qu un systeme de management integre ? ; Un SMI est l association de la gestion, des strategies et des objectifs de plusieurs systèmes de management (Qualite, SMSI, Environnement, ...).
+Qu est ce qu une expression de besoin en continuite d activite ? ; Une EBCA estime les ressources, locaux et services minimaux nécessaires pour reprendre les activités en mode dégradé après leur interruption jusqu'au retour à la normale. Elle est primordiale dans la norme.
+Definissez WRT ? ; Work Recovery Time = Delta de temps a partir de la remise en route des systèmes en mode degrade et durant lequel nous récupérons le travail manuel / donnees / ... et relancons les procedures normales dans le but de retrouver une situation normale.
+Definissez MTD ; Maximum Tolerable Downtime = MDT = DIMA = RTO + WRT = la duree maximale durant laquelle l entreprise accepte d etre en activite degradee suite a un incident.
+Definissez ce qu est une DIMA ; Duree d Interruption Maximale Admissible = MTD .
+Qu’est-ce que la continuité d’activité ? ; La poursuite des activités d’une entreprise, à la suite d’un événement perturbateur majeur (en réduisant les situations de crise).

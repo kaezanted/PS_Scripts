@@ -1,0 +1,43 @@
+Question;Reponse
+Definition RTC ?;Reseau Telephonique Commute (ce sont les anciens reseaux analogique de boucle locale) 
+Une ZAA c'est quoi ? ;C'est une zone a autonomie d'acheminement, ça correspondd a un RTC local type quartier ou petite ville
+Un CAA c'est quoi ?;Le CAA c'est le Commutateur a autonomie d'acheminement
+Une ZTS ? ;ZTS = Zone de transit secondaire (zone de commutation equivalente a une grande ville / departement / region)
+En quoi consiste la norme 802.1q ?;La norme 802.1q indique la compatibilite avec les VLAN, elle consiste a modifier la trame Ethernet au niveau de la couche MAC et d'ajouter/comprendre un tag / trunk a la trame.
+Mon operateur me propose un contrat : un T2 + un T0, en quoi ça consiste ?  ;Le T2 represente une offre de 30 canaux B pour les lignes tel + 1 canal D pour la gestion, il y a donc 30 lignes. Le T0 lui comprend 2 canaux B + 1 canal D = 2 lignes, donc l'offre complete contient 32 lignes tel.
+Quelle est la formule d'Erlang ?;Traffic (E) = (nbr d appels externes X duree moyenne en heure) / Interval de temps considere en heure , puis on compare le resultat au tableau d'Erlang.
+Le H.323 c'est quoi ?;C'est une recommandation regroupant une serie de protocoles dedies  aux differentes phases de la communication voix, image et data sur IP
+Qu'est ce qu'un media-gateway;C'est un  materiel reseau qui gere l'interconnexion entre differents type de rsx (sip, rtc, 4g, wifi, ...)
+Un PABX c'est quoi ?;Un PABX = Private Automatic Branch eXchange, c'est un serveur qui sert a relier le reseau telephonique interne avec le reseau telephonique public ou RTC
+Un IPPBX c'est quoi ?;Un IPPBX = IP Private Branch eXchange , c'est le serveur qui gere les communication internes et fait le transit avec les appels externes sur le WAN grâce aux techno VOIP
+Expliquez le principe du Trunk SIP ?;Le Trunk SIP permet de faire transiter la voix sur IP en raccordement direct sans boitier de conversion, de votre IPPBX vers le rsx voix de votre operateur au travers d'un lien SDSL.
+G711 , G726 et G729, qu'est ce que c'est et lequel est le meilleur ?;Ce sont des codecs Voix qui vont modifier la compression de la voix, le G711 est le meilleur avec une note MOS de 4.1 mais est plus gourmand en bande passante (64k/s)
+RTP c'est quoi ? ;RTP = Real Time Protocol = protocole utilise pour le transport de la voix, base sur des contraintes de transport en temps reel.
+Quels sont les avantages des Vlan ?;Les Vlans permettent la limite des domaines de diffusion, la securisation par cloisonnement (donc separation des reseaux logiques), optimisation de la bande passante.
+Expliquez le Vlan de niveau 1;En fonction du port de raccordement au switch, un tag de vlan sera ajoute a la trame, c'est du Vlan physique.
+Expliquez le Vlan de niveau 2;C'est l 'adresse MAC de l'emetteur determine le TAG
+Expliquez le Vlan de niveau 3;C'est l'adresse IP qui determine l'appartenance au Vlan
+Qu'est ce que la QOS ?;QOS = Quality Of Service = service reseau qui permet de prioriser certains type de flux sur le reseau pour eviter les denis de service lie a la consommation de la bande passante.
+Comment fonctionne techniquement la QOS ? Et quelle norme permet ce fonctionnement ?;C'est grace a la norme 802.1p qui permet d'utiliser 3 bits de l'entête des paquets, ces 3 bits permettent de determiner des priorites de flux (entre 0 et 7). 
+Dans un paquet RTP, un champ particulierement identifie une information primordiale, lequel et pourquoi ?;C'est le champ Sequence Number qui identifie le numero du paquet dans la serie qui est envoyee pour la communication et retrouver le bon ordre.
+Dans un paquet RTCP il y a un champ interarrival jitter, qu'est ce que c'est ?;Le jitter permet d'identifier la Gigue, c'est la variation du delai de latence dans la communication, cette information va directement impacter la qualite de la conversation.
+A partir de combien de % de perte de paquets une communication sera mauvaise ? (en VOIP);A Partir de 3% la communication devient mauvaise, entre 1 et 3% c'est acceptable, en desous de 1% c'est bon.
+Quel protocole remplace H323 ?;C'est le SIP = Session Initiation protocol
+Comment se deroule un echange standard entre client et serveur dans le cadre du protocole SIP ?;1- Principal Request du client vers le serveur 2- Register 3- Invite 4- Ack 5- Cancel 6- Bye
+Quelles sont les reponses possibles (et code retour) lors d'un echange dans le cadre du protocole SIP ;2xx = Reponse positive 1xx = Reponse Provisoire 3xx = Redirection 4xx/5xx/6xx = Erreur
+Qu'est ce que la norme 802.3af reglemente ?;Elle sert pour le POE.
+Le POE c'est quoi ?;Le POE = Power over Ethernet, ce sont les materiels qui peuvent s'alimenter a travers les câbles ethernet, qui fonctionnent donc sans alimentation traditionnelle.
+En quoi consiste le MOS ?;MOS = Mean Opinion Score, c'est la note d'opinion moyenne d'une communication qui correspond a la qualite de cette derniere, la note est sur 5.
+Que faut il mettre en place dans une entreprise pour prendre en compte correctement les appels et eviter qu'ils soient rediriger n'importe comment,  Ou bien qu'il soit correctement rediriger vers quelqu'un ?;Il faut mettre en place un processus d'appel qui va donner un circuit d'appel. 
+RTCP c'est quoi ?;C'est un protocole de contrôle des flux RTP, permettant de vehiculer des informations basiques sur les participants d'une session, et sur la qualite de service
+C'est quoi l'ordonnancement ?;C'est la methode qui est utilisee pour modifier l'ordre des paquets / requêtes.
+Citez des methodes d'ordonnancement qui sont utilisees dans le cadre de la QOS pour la VOIP ? ;le Low Latency Queuing, le Fair Queuing, ... 
+Quel port est utilise pour RTP ? Et RTCP ? ;RTP = 5004 et RTCP = 5005 
+Quels sont les ports utilises par SIP et la version securise SIPs ?;SIP = 5060 et SIPs = 5061
+Une fois que la voix a ete encode par un codec, par exemple G711, elle doit être vehiculee par un protocole, de quelle couche du modele OSI le protocole doit être ?;La voix une fois encodee, doit être vehiculee par un protocole de couche 5.
+A quoi correspond le champ [CC] dans un paquet RTP ?;[CC] = Le nombre de contributeurs , tres utile dans le cas d'une conference, ...
+C'est quoi un Mixer ? A quoi ça sert ?;Le Mixer est un element qui centralise les informations des paquets RTP de plusieurs participants d'une communication (conference) et Il est charge de generer un paquet contenant le cumul de celles-ci qui sera adresse a tous les participants.
+J'ai des problemes de telephonie au sein de mon entreprise, a priori le delai de latence serait trop long, quelles solutions me proposez-vous ?;Il faut identifier la cause mais principalement : Eviter la serialisation des routeurs, switchs, augmentation des debits des lignes, preferer la commutation plutôt que le routage (pour la route).
+A partir de combien de ms la gigue pose probleme ?;La variation de la latence pose probleme au dela de 75 ms. 
+Citez les 2 protocoles de signalisation les plus utilises ?;SIP et H.323
+Le SIP registrar c'est quoi ?;C’est l’equipement responsable de l’enregistrement des clients disponibles de son domaine SIP. Il reference leur statut et adresse IP

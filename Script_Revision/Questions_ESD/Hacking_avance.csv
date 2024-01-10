@@ -1,0 +1,28 @@
+Question;Reponse
+Expliquez ce qu est un single ou stageless ? ; C est un type de payload autonome pour un usage unique, il contient tous les stages necessaire a son fonctionnement.
+Quels sont les avantages et inconvenients d une charge staged ? ; La charge initiale est legere et permet d executer le code directement en memoire, en revanche le chiffrement ne commence qu au telechargement de la seconde charge.
+Qu est ce qu un dropper ? ; C est un declencheur / script visant a telecharger une charge.
+Donnez les 7 etapes de la cyber kill chain. ; Recon > Weaponize > Delivry > Exploit > Control > Execute > Maintain.
+Quel est le type de charge de ce payload : windows/meterpreter/reverse_tcp ? ; C est une charge staged (le slash entre meterpreter et reverse_tcp).
+Quel outil peut on utiliser avec metasploit pour generer une charge ? ; msfvenom
+Expliquez ce qu est une DDE ? ; Dans Office, une Dynamic Data Exchange permet d appeler du contenu externe. Detournee, cette fonctionnalite peut permettre a un attaquant de telecharger une charge, ...
+Citez quelques Lolbas windows connus ; mshta.exe , bitsadmin.exe, hh.exe, certutil, curl, ilasm.exe, rundll32, ... 
+Est il possible d ajouter des modules dans metasploit ? Si non, pourquoi ? Si oui, comment ? ; Oui en placant le module en question dans le dossier modules de metasploit et en rechargeant les modules avec la commande reload all.
+Comment puis je automatiser des actions dans metasploit ? ; Avec des scripts .rc  .
+Dans le cadre d un blackbox, je souhaite effectuer du spear phishing vers un employe, quelles sont les informations qui vont m interesser pour executer cette attaque ? ; Adresse mail, infos DNS, profil de l employe cible, leaks potentiels, ...
+Nous sommes le 7 Decembre 2020, quelles sont les evenements / occasions qui peuvent m aider pour effectuer une bonne campagne de phishing ? ; La crise COVID, l appli stop-covid, les conges de noel, les promotions de noel, la prime de fin d annee, organisation d un event pour la fin d annee dans l entreprise, ...
+Donnez la signification precise de chaque argument de cet enregistrement spf : [v=spf1 a mx ip4:210.27.42.3 -all] ; v= version spf1 , a = le nom de domaine autorise a envoyer les mails (si vide = domaine courant), mx = srv mx autorise a envoyer les mails du domaine (si vide = domaine courant), ip4: = ip autorise a envoye les mails du domaine, -all = rejet des mails qui ne correspondent pas a l enregistrement.
+Quels sont les 2 autres types de securite avec SPF pour se proteger du spoofing de mail, ... ? ; DKIM et DMARC
+Quels sont les deux protocoles d authentification potentiellement utilises dans Windows ? ; NTLM et Kerberos
+Mon collegue m a indique qu il etait possible de recuperer un hash NT ainsi qu un hash LM, quelles sont les differences ? ; le hash LM est un condensat utilise sur les anciens systemes (pre vista) alors que le hash NT est utilise par les systemes plus recents.
+Ou peut etre situe le hash NT du mot de passe utilisateur dans Windows 10 ? ; Base SAM, processus lsass, attention NTDS.dit n est pas present sur un W10, c est la base de domaine utilise par les DC.
+Ou peut etre situe le hash LM du mot de passe utilisateur dans Windows 7 ? ; Nul part, ce hash est utilise sur les OS pre vista.
+Expliquez les differentes etapes d une auth NTLM. ; 1- Le client transmet le nom d utilisateur au serveur en demandant une auth, 2- le serveur envoie un challenge de 16 octets au client, 3- le client chiffre le challence avec son hash et le retourne au serveur, 4- le serveur contacte le DC pour valider ou non l authentification.
+Quel tier de confiance utilise Kerberos pour gerer l auth ? Quelles sont les 2 parties qui composent ce tier ? ; Le KDC (Key Distribution Center) est compose de l Authentication Service (AS) et du Ticket-Granting Service (TGS).
+Quel est le role de l AS dans une authentif Kerberos ? ; Son role est de fournir des TGT (Ticket-granting Ticket) permettant d effectuer des demandes d acces aux services aupres du TGS.
+Vrai ou faux ? Le TGS a pour role de verifier l authenticite des demandes d acces a un service, et fournit un ticket d acces a ce service ? ; Vrai
+Quelle est la finalite de la premiere etape (globale) lors de l authentification d un client avec Kerberos ? ; Le but est de valider l identite de l utilisateur et fournir au client un TGT ainsi qu une cle de session TGS pour effectuer des requetes d acces aupres du TGS.
+Expliquez brievement les grands principes dans le fonctionnement de Kerberos ? ; Kerberos utilise un mecanisme de chiffrement symetrique couple a une gestion et une distribution de ticket avec timestamp.
+Cette etape de Kerberos est elle vraie ou fausse : client A envoie un message contenant [une authentification + une cle de session X], il chiffre ce message avec une cle secrete Y et accompagne ce message d un timestamp lui aussi chiffre avec la cle secrete Y ? ; Faux, le timestamp est chiffre avec la cle X protegee par le chiffrement de la cle Y, le serveur lui possedant deja la cle Y, pourra dechiffrer le message et recuperer la cle X en verifiant l identite du client.
+En quoi consiste une attaque de relai NTLM ? ; Le but est de se placer en MITM et relayer un challenge NTLM afin de gagner l acces a un service, une machine, ... avec les droits de l utilisateur.
+Qu est ce que le WPAD et pourquoi est ce dangereux ? ; WPAD = Web Proxy Auto Discovery, c est un protocole qui est utilise par les navigateurs web pour detecter automatiquement la presence d un proxy, et par defaut va effectuer une requete a une machine portant le nom WPAD.domaine.lan. Il est alors possible d utiliser differentes techniques comme MITM, DNS poisonning, LLMNR poisonning, ... 
