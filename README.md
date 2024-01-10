@@ -54,18 +54,15 @@ fonction play
     modulo du tour 
     Si tour impair > equipe 1 
     Si tour pair > equipe 2
-
     question $question
-    press
+    press input
     réponse à la question $answer
-
     read-host y/n
     Si réponse ok : point pour le joueur en cours
     sinon "bouuh"
     read-host pour retirer la question y/n
     Si oui : la question est retirée de la boucle 
     Si non : fonction ASCII art, i'll be back et la question reste dans la table'
-   
     Affichage des scores, ... 
 
 fonction select du nmbr de joueurs
@@ -73,5 +70,4 @@ fonction select du nmbr de joueurs
 
 fonction leave
     Exit
-
 End #>
